@@ -52,6 +52,7 @@ export class Range implements Iterable<any> {
     return Number.isInteger(this.begin) && Number.isInteger(this.end)
   }
 
+  // for Ruby2JS
   exclude_end$() {
     return this.excludeEnd
   }
@@ -99,6 +100,10 @@ export class Range implements Iterable<any> {
     } else {
       throw new Error(`Can't iterate from the given values`)
     }
+  }
+
+  forEach(fn: (obj: any) => void) {
+    return this.step(1, fn)
   }
 
   [Symbol.iterator](): IterableIterator<any> {
