@@ -2,7 +2,6 @@ export function isIterable(value: any): value is Iterable<any> {
   return typeof value[Symbol.iterator] === 'function'
 }
 
-
 export function mixin(klass) {
   const proto = klass.prototype
   for (let key of Object.keys(StaticMethods)) {
